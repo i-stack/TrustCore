@@ -14,12 +14,12 @@ public struct Address: Hashable, CustomStringConvertible {
 
     /// EIP55 representation of the address.
     public let eip55String: String
-
+    public let tronString: String = ""
     /// Creates an address with `Data`.
     ///
     /// - Precondition: data contains exactly 20 bytes
     public init(data: Data) {
-        precondition(data.count == 20, "Address length should be 20 bytes")
+//        precondition(data.count == 20, "Address length should be 20 bytes")
         self.data = data
         eip55String = Address.computeEIP55String(for: data)
     }

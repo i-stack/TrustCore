@@ -11,7 +11,6 @@ public enum ABIError: LocalizedError {
     case invalidUTF8String
     case invalidNumberOfArguments
     case invalidArgumentType
-    case functionSignatureMismatch
 
     public var errorDescription: String? {
         switch self {
@@ -23,8 +22,6 @@ public enum ABIError: LocalizedError {
             return NSLocalizedString("Invalid number of arguments", comment: "ABI error description")
         case .invalidArgumentType:
             return NSLocalizedString("Invalid argument type", comment: "ABI error description")
-        case .functionSignatureMismatch:
-            return NSLocalizedString("Function signature mismatch", comment: "ABI error description")
         }
     }
 }

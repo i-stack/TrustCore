@@ -34,4 +34,9 @@
     return ecdsa_verify_digest(&secp256k1, publicKey.bytes, signature.bytes, message.bytes) == 0;
 }
 
++ (nonnull NSData *)sha256:(nonnull NSData *)data {
+    NSMutableData *result = [[NSMutableData alloc] initWithLength:SHA256_DIGEST_LENGTH];
+    sha256_Raw(data.bytes, data.length, result.mutableBytes);
+    return result;
+}
 @end

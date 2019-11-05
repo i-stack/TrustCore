@@ -30,4 +30,6 @@
 /// @return whether the signature is valid
 + (BOOL)verifySignature:(nonnull NSData *)signature message:(nonnull NSData *)message publicKey:(nonnull NSData *)publicKey NS_SWIFT_NAME(verify(signature:message:publicKey:));
 
++ (nonnull NSData *)sha256:(nonnull NSData *)data;
+
 @end

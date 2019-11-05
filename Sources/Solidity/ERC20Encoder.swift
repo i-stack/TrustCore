@@ -98,4 +98,74 @@ public final class ERC20Encoder {
         try! encoder.encode(function: function, arguments: [from, to, tokens])
         return encoder.data
     }
+    
+    /// Encodes a function call to `depositTRX`
+    ///
+    /// Solidity function: `function depositTRX() public returns (bool success);`
+    public static func encodeDepositTRX() -> Data {
+        let function = Function(name: "depositTRX", parameters: [])
+        let encoder = ABIEncoder()
+        try! encoder.encode(function: function, arguments: [])
+        return encoder.data
+    }
+    
+    /// Encodes a function call to `depositTRC10`
+    ///
+    /// Solidity function: `function depositTRC10(uint tokenID, uint tokenCount) public returns (bool success);`
+    public static func encodeDepositTRC10(tokenId: BigUInt, tokens: BigUInt) -> Data {
+        let function = Function(name: "depositTRC10", parameters: [.uint(bits: 64), .uint(bits: 64)])
+        let encoder = ABIEncoder()
+        try! encoder.encode(function: function, arguments: [tokenId, tokens])
+        return encoder.data
+    }
+    
+    /// Encodes a function call to `encodeDepositTRC20`
+    ///
+    /// Solidity function: `function encodeDepositTRC20(address spender, uint tokens) public returns (bool success);`
+    public static func encodeDepositTRC20(spender: Address, tokens: BigUInt) -> Data {
+        let function = Function(name: "depositTRC20", parameters: [.address, .uint(bits: 64)])
+        let encoder = ABIEncoder()
+        try! encoder.encode(function: function, arguments: [spender, tokens])
+        return encoder.data
+    }
+    
+    /// Encodes a function call to `encodeWithdrawTRX`
+    ///
+    /// Solidity function: `function encodeWithdrawTRX() public returns (bool success);`
+    public static func encodeWithdrawTRX() -> Data {
+        let function = Function(name: "withdrawTRX", parameters: [])
+        let encoder = ABIEncoder()
+        try! encoder.encode(function: function, arguments: [])
+        return encoder.data
+    }
+    
+    /// Encodes a function call to `encodeWithdrawFee`
+    ///
+    /// Solidity function: `function encodeWithdrawFee() public returns (uint256 public constant);`
+    public static func encodeWithdrawFee() -> Data {
+        let function = Function(name: "getWithdrawFee", parameters: [])
+        let encoder = ABIEncoder()
+        try! encoder.encode(function: function, arguments: [])
+        return encoder.data
+    }
+    
+    /// Encodes a function call to `encodeWithdrawTRC10`
+    ///
+    /// Solidity function: `function encodeWithdrawTRC10(uint tokenID, uint tokenCount) public returns (bool success);`
+    public static func encodeWithdrawTRC10(tokenId: BigUInt, tokens: BigUInt) -> Data {
+        let function = Function(name: "withdrawTRC10", parameters: [.uint(bits: 256), .uint(bits: 256)])
+        let encoder = ABIEncoder()
+        try! encoder.encode(function: function, arguments: [tokenId, tokens])
+        return encoder.data
+    }
+    
+    /// Encodes a function call to `encodeWithdrawTRC20`
+    ///
+    /// Solidity function: `function encodeWithdrawTRC20(uint tokenCount) public returns (bool success);`
+    public static func encodeWithdrawTRC20(tokens: BigUInt) -> Data {
+        let function = Function(name: "withdrawal", parameters: [.uint(bits: 256)])
+        let encoder = ABIEncoder()
+        try! encoder.encode(function: function, arguments: [tokens])
+        return encoder.data
+    }
 }
